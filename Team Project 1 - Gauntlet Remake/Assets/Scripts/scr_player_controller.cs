@@ -40,7 +40,7 @@ public class scr_player_controller : MonoBehaviour
     void Update()
     {
         //allows for the pausing system to work by freezing any updates that the player would make
-        if (obj.GetComponent<scr_game_controller>().pause == false)
+        if ((obj.GetComponent<scr_game_controller>().pause == false) || (obj.GetComponent<scr_game_controller>().win == true))
         {
             if (shootpause == false)
             {
@@ -197,7 +197,7 @@ public class scr_player_controller : MonoBehaviour
     IEnumerator shoot()
     {
         shootpause = true;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.35f);
         shootpause = false;
     }
 }

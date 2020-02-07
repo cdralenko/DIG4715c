@@ -11,13 +11,13 @@ public class scr_game_controller : MonoBehaviour
     public int key;
     public int health;
     public int score;
-    public bool win;
 
     public Text endtext;
     public Text scoretext;
     public Text healthtext;
 
     public bool pause = false;
+    public bool win = false;
 
     
     void Start()
@@ -25,7 +25,6 @@ public class scr_game_controller : MonoBehaviour
         key = 0;
         health = totalhealth;
         score = 0;
-        win = false;
 
         endtext.text = "";
         scoretext.text = "";
@@ -46,6 +45,11 @@ public class scr_game_controller : MonoBehaviour
         if (health == 0)
         {
             SceneManager.LoadScene("EndScreen");
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Application.Quit();
         }
     }
 }
